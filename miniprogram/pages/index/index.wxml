@@ -1,0 +1,62 @@
+<view class="game-shell">
+  <view class="hero">
+    <view>
+      <view class="eyebrow">轻松上手 · 交换消除</view>
+      <view class="title">萌果消消乐</view>
+    </view>
+    <button class="restart" bindtap="restartGame">重开</button>
+  </view>
+
+  <view class="panel stats">
+    <view class="stat">
+      <text class="label">分数</text>
+      <text class="value">{{score}}</text>
+    </view>
+    <view class="stat">
+      <text class="label">目标</text>
+      <text class="value">{{targetScore}}</text>
+    </view>
+    <view class="stat">
+      <text class="label">步数</text>
+      <text class="value moves {{movesLeft <= 5 ? 'danger' : ''}}">{{movesLeft}}</text>
+    </view>
+  </view>
+
+  <view class="progress-card">
+    <view class="progress-info">
+      <text>{{message}}</text>
+      <text>{{progressText}}</text>
+    </view>
+    <view class="progress-track">
+      <view class="progress-fill" style="width: {{progressPercent}}%;"></view>
+    </view>
+  </view>
+
+  <view class="board" style="grid-template-columns: repeat({{size}}, 1fr);">
+    <block wx:for="{{tiles}}" wx:key="id">
+      <view
+        class="tile {{item.selected ? 'selected' : ''}} {{item.matched ? 'matched' : ''}}"
+        data-row="{{item.row}}"
+        data-col="{{item.col}}"
+        bindtap="tapTile"
+      >
+        <view class="tile-inner type-{{item.type}}">{{item.icon}}</view>
+      </view>
+    </block>
+  </view>
+
+  <view class="tips panel">
+    <view class="tip-title">玩法小贴士</view>
+    <view>点两个相邻萌果交换，横向或纵向连成 3 个即可消除。</view>
+    <view>一次消除越多，连击奖励越高；步数不多，优先找 4 连和 5 连！</view>
+  </view>
+
+  <view wx:if="{{gameOver}}" class="overlay">
+    <view class="dialog">
+      <view class="dialog-icon">{{won ? '🎉' : '🍀'}}</view>
+      <view class="dialog-title">{{won ? '闯关成功！' : '还差一点点'}}</view>
+      <view class="dialog-text">本局得分 {{score}} / {{targetScore}}</view>
+      <button class="play-again" bindtap="restartGame">再玩一局</button>
+    </view>
+  </view>
+</view>

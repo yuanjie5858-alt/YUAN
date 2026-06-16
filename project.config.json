@@ -1,0 +1,14 @@
+{
+  "description": "趣味消消乐微信小游戏",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true
+  },
+  "compileType": "miniprogram",
+  "appid": "touristappid",
+  "projectname": "candy-pop-mini",
+  "miniprogramRoot": "miniprogram/"
+}
