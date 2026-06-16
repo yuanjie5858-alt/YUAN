@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "萌果消消乐",
+    "navigationBarBackgroundColor": "#ff8fb3",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#fff7fb"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
